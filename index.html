@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Browser</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <div class="window">
+    <aside class="sidebar">
+      <div class="top-controls">
+        <button id="homeBtn" title="Dashboard">◉</button>
+        <button id="settingsBtn" title="Settings">⚙</button>
+        <div class="spacer"></div>
+        <button id="minBtn" title="Minimize">—</button>
+        <button id="closeBtn" title="Close">×</button>
+      </div>
+
+      <div class="address-row">
+        <button id="backBtn" title="Back">‹</button>
+        <button id="forwardBtn" title="Forward">›</button>
+        <button id="reloadBtn" title="Reload">↻</button>
+      </div>
+
+      <div class="omnibox">
+        <span>⌕</span>
+        <input id="urlInput" value="" spellcheck="false" placeholder="Search or enter URL">
+      </div>
+
+      <div class="shortcut-head">
+        <span>SHORTCUTS</span>
+        <button id="addShortcutBtn" title="Add shortcut">＋</button>
+      </div>
+      <div id="quickGrid" class="quick-grid"></div>
+
+      <div class="section-label"><span class="dot"></span> WORKSPACE</div>
+
+      <div id="workspaceList" class="workspace-list"></div>
+
+      <div class="sidebar-bottom">
+        <button id="newWorkspace">＋ New Workspace</button>
+        <button id="commandBtn">⌘ Command</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="titlebar">
+        <div id="tabs" class="tabs"></div>
+        <div class="title-actions">
+          <button id="newTab" title="New tab">＋</button>
+          <button id="homeDash" title="Dashboard">⌂</button>
+        </div>
+      </div>
+
+      <section id="dashboard" class="dashboard">
+        <div class="hero">
+          <div class="eyebrow">AURA // LOCAL INTERFACE</div>
+          <h1 id="greeting">Good Evening</h1>
+          <p>Clear skies. Your workspace is ready.</p>
+          <div class="weather">☁ <strong>24°</strong><span> Bengaluru</span></div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="card">
+            <span class="card-label">WORKSPACE</span>
+            <strong id="dashWorkspace">Monkeytype</strong>
+            <small id="dashShortcutCount">0 shortcuts</small>
+          </div>
+          <div class="card">
+            <span class="card-label">SYSTEM</span>
+            <strong>ONLINE</strong>
+            <small>AURA browser shell operational</small>
+          </div>
+          <div class="card command-card" id="dashCommand">
+            <span class="card-label">AURA</span>
+            <strong>What are we doing?</strong>
+            <small>Press Ctrl + Space</small>
+          </div>
+        </div>
+      </section>
+
+      <div id="webviews" class="webviews"></div>
+    </main>
+  </div>
+
+  <div id="commandPalette" class="overlay hidden">
+    <div class="palette">
+      <div class="palette-title">◉ AURA COMMAND</div>
+      <input id="commandInput" placeholder="What do you want to do?" autofocus>
+      <div class="commands">
+        <button data-cmd="dashboard">Open dashboard</button>
+        <button data-cmd="chatgpt">Open ChatGPT</button>
+        <button data-cmd="github">Open GitHub</button>
+        <button data-cmd="youtube">Open YouTube</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="shortcutModal" class="overlay hidden">
+    <div class="dialog">
+      <div class="palette-title">＋ ADD SHORTCUT</div>
+      <label>Name<input id="shortcutName" placeholder="GitHub"></label>
+      <label>URL<input id="shortcutUrl" placeholder="https://github.com"></label>
+      <div class="dialog-actions">
+        <button id="cancelShortcut">Cancel</button>
+        <button id="saveShortcut" class="primary">Add shortcut</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="contextMenu" class="context-menu hidden">
+    <button data-action="open">Open</button>
+    <button data-action="rename">Rename</button>
+    <button data-action="move">Move to workspace</button>
+    <button data-action="remove">Remove</button>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

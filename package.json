@@ -1,0 +1,12 @@
+{
+  "name": "aura-browser-prototype",
+  "version": "0.2.0",
+  "description": "AURA futuristic browser shell prototype",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^44.4.3"
+  }
+}
