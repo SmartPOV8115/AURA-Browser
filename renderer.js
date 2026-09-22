@@ -46,7 +46,7 @@ const quickGrid = document.getElementById("quickGrid");
 const workspaceList = document.getElementById("workspaceList");
 const tabsEl = document.getElementById("tabs");
 const urlInput = document.getElementById("urlInput");
-const workspaceTitle = document.querySelector(".titlebar span");
+const workspaceTitle = document.createElement("span");
 const dashWorkspace = document.getElementById("dashWorkspace");
 const dashShortcutCount = document.getElementById("dashShortcutCount");
 const commandPalette = document.getElementById("commandPalette");
@@ -119,7 +119,6 @@ function renderWorkspaces() {
     workspaceList.appendChild(btn);
   });
 
-  workspaceTitle.textContent = state.activeWorkspace;
   dashWorkspace.textContent = state.activeWorkspace;
   renderShortcuts();
 }
