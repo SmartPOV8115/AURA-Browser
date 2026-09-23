@@ -10,11 +10,12 @@
   <div class="ambient"></div>
 
   <div class="window">
-    <aside class="sidebar">
+    <aside id="sidebar" class="sidebar">
       <div class="top-controls">
+        <button id="collapseBtn" title="Collapse sidebar">☰</button>
         <button id="homeBtn" title="Dashboard">◉</button>
-        <button id="settingsBtn" title="Settings">⚙</button>
         <div class="spacer"></div>
+        <button id="settingsBtn" title="Settings">⚙</button>
         <button id="minBtn" title="Minimize">—</button>
         <button id="closeBtn" title="Close">×</button>
       </div>
@@ -32,12 +33,14 @@
 
       <div class="shortcut-head">
         <span>SHORTCUTS</span>
-        <button id="addShortcutBtn" title="Add shortcut">＋</button>
+        <div class="head-actions">
+          <button id="pinCurrentBtn" title="Pin current page">☆</button>
+          <button id="addShortcutBtn" title="Add shortcut">＋</button>
+        </div>
       </div>
       <div id="quickGrid" class="quick-grid"></div>
 
       <div class="section-label"><span class="dot"></span> WORKSPACE</div>
-
       <div id="workspaceList" class="workspace-list"></div>
 
       <div class="sidebar-bottom">
@@ -72,7 +75,7 @@
           <div class="card">
             <span class="card-label">SYSTEM</span>
             <strong>ONLINE</strong>
-            <small>AURA browser shell operational</small>
+            <small id="systemState">AURA browser shell operational</small>
           </div>
           <div class="card command-card" id="dashCommand">
             <span class="card-label">AURA</span>
@@ -89,13 +92,8 @@
   <div id="commandPalette" class="overlay hidden">
     <div class="palette">
       <div class="palette-title">◉ AURA COMMAND</div>
-      <input id="commandInput" placeholder="What do you want to do?" autofocus>
-      <div class="commands">
-        <button data-cmd="dashboard">Open dashboard</button>
-        <button data-cmd="chatgpt">Open ChatGPT</button>
-        <button data-cmd="github">Open GitHub</button>
-        <button data-cmd="youtube">Open YouTube</button>
-      </div>
+      <input id="commandInput" placeholder="Search a command or website" autofocus>
+      <div id="commandResults" class="commands"></div>
     </div>
   </div>
 
@@ -111,12 +109,18 @@
     </div>
   </div>
 
-  <div id="contextMenu" class="context-menu hidden">
-    <button data-action="open">Open</button>
-    <button data-action="rename">Rename</button>
-    <button data-action="move">Move to workspace</button>
-    <button data-action="remove">Remove</button>
+  <div id="workspaceModal" class="overlay hidden">
+    <div class="dialog">
+      <div class="palette-title">◉ WORKSPACE</div>
+      <label>Name<input id="workspaceName" placeholder="Study"></label>
+      <div class="dialog-actions">
+        <button id="cancelWorkspace">Cancel</button>
+        <button id="saveWorkspace" class="primary">Create</button>
+      </div>
+    </div>
   </div>
+
+  <div id="contextMenu" class="context-menu hidden"></div>
 
   <script src="renderer.js"></script>
 </body>
