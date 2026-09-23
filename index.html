@@ -31,7 +31,7 @@
         <input id="urlInput" value="" spellcheck="false" placeholder="Search or enter URL">
       </div>
 
-      <div class="shortcut-head">
+      <div class="section-head">
         <span>SHORTCUTS</span>
         <div class="head-actions">
           <button id="pinCurrentBtn" title="Pin current page">☆</button>
@@ -40,7 +40,15 @@
       </div>
       <div id="quickGrid" class="quick-grid"></div>
 
-      <div class="section-label"><span class="dot"></span> WORKSPACE</div>
+      <div class="section-head tabs-head">
+        <span>TABS</span>
+        <button id="newTab" title="New tab">＋</button>
+      </div>
+      <div id="tabList" class="tab-list"></div>
+
+      <div class="section-head workspace-head">
+        <span>WORKSPACE</span>
+      </div>
       <div id="workspaceList" class="workspace-list"></div>
 
       <div class="sidebar-bottom">
@@ -51,9 +59,12 @@
 
     <main class="content">
       <div class="titlebar">
-        <div id="tabs" class="tabs"></div>
+        <div class="page-title">
+          <span class="title-dot"></span>
+          <span id="pageTitle">AURA</span>
+        </div>
         <div class="title-actions">
-          <button id="newTab" title="New tab">＋</button>
+          <button id="focusUrlBtn" title="Focus address">⌕</button>
           <button id="homeDash" title="Dashboard">⌂</button>
         </div>
       </div>
@@ -62,7 +73,7 @@
         <div class="hero">
           <div class="eyebrow">AURA // LOCAL INTERFACE</div>
           <h1 id="greeting">Good Evening</h1>
-          <p>Clear skies. Your workspace is ready.</p>
+          <p id="workspaceSubtitle">Your workspace is ready.</p>
           <div class="weather">☁ <strong>24°</strong><span> Bengaluru</span></div>
         </div>
 
@@ -73,9 +84,9 @@
             <small id="dashShortcutCount">0 shortcuts</small>
           </div>
           <div class="card">
-            <span class="card-label">SYSTEM</span>
-            <strong>ONLINE</strong>
-            <small id="systemState">AURA browser shell operational</small>
+            <span class="card-label">BROWSER</span>
+            <strong id="dashTabCount">0 TABS</strong>
+            <small>Workspace session</small>
           </div>
           <div class="card command-card" id="dashCommand">
             <span class="card-label">AURA</span>
@@ -92,7 +103,7 @@
   <div id="commandPalette" class="overlay hidden">
     <div class="palette">
       <div class="palette-title">◉ AURA COMMAND</div>
-      <input id="commandInput" placeholder="Search a command or website" autofocus>
+      <input id="commandInput" placeholder="Search command, website, or tab">
       <div id="commandResults" class="commands"></div>
     </div>
   </div>
@@ -121,7 +132,6 @@
   </div>
 
   <div id="contextMenu" class="context-menu hidden"></div>
-
   <script src="renderer.js"></script>
 </body>
 </html>
