@@ -1,6 +1,6 @@
 # AURA Browser Prototype v0.2
 
-Futuristic browser shell based on the reference UI.
+Futuristic browser shell based on the the UI.
 
 ## Run
 ```cmd
